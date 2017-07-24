@@ -37,6 +37,23 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_actor/:toast_id", { :controller => "actor", :action => "destroy_row" })
   
+  # Movies
+  
+  # CREATE
+  get("/movies/new", { :controller => "movie", :action => "new_form" })
+  get("/create_movie", { :controller => "movie", :action => "create_row" })
+
+  # READ
+  get("/movies", { :controller => "movie", :action => "index" })
+  get("/movies/:the_id", { :controller => "movie", :action => "show" })
+
+  # UPDATE
+  get("/movies/:an_id/edit", { :controller => "movie", :action => "edit_form" })
+  get("/update_movie/:some_id", { :controller => "movie", :action => "update_row" })
+
+  # DELETE
+  get("/delete_movie/:toast_id", { :controller => "movie", :action => "destroy_row" })
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount WebGit::Engine, at: "/rails/git"
 end
