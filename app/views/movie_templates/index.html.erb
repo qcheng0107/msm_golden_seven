@@ -12,7 +12,11 @@
       <% @all_movies.each do|movie| %>
         <a href="/movies/<%= movie.id %>">
             <%= movie.title %>
+            </a>
         </div>
+        <p>Year: <%= movie.year %></p>
+        <p>Duration: <%= movie.duration %></p>
+        <p>Description: <%= movie.description %></p>
         <div>
           <img src="<%= movie.image_url %>"></img>
         </div>
