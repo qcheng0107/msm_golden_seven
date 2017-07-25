@@ -16,7 +16,7 @@ class DirectorController < ApplicationController
        
        @director_count = Director.count
        
-    #   redirect_to("/directors/<% @the_id %>")
+    #   redirect_to("/directors/<%=@the_id %>")
       render("dir_templates/create_row.html.erb") 
    end
 

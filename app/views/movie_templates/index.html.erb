@@ -17,9 +17,7 @@
         <p>Year: <%= movie.year %></p>
         <p>Duration: <%= movie.duration %></p>
         <p>Description: <%= movie.description %></p>
-        <div>
-          <img src="<%= movie.image_url %>"></img>
-        </div>
+        <img src="<%= movie.image_url %>"></img>
         
         <div class="caption">
           <a href = "/movies/<%= movie.id %>" class="btn btn-default btn-block">

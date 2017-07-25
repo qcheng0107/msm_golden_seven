@@ -12,10 +12,12 @@
       <% @all_actors.each do|actor| %>
         <a href="/actors/<%= actor.id %>">
             <%= actor.name %>
+            </a>
         </div>
-        <div>
-          <img src="<%= actor.image_url %>"></img>
-        </div>
+        <p><%= actor.bio %></p>
+        <p><%= actor.dob %></p>
+        <img src="<%= actor.image_url %>"></img>
+
         
         <div class="caption">
           <a href = "/actors/<%= actor.id %>" class="btn btn-default btn-block">

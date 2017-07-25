@@ -12,10 +12,12 @@
       <% @all_directors.each do|director| %>
         <a href="/directors/<%= director.id %>">
             <%= director.name %>
+            </a>
         </div>
-        <div>
+        <p><%= @the_bio %></p>
+        <p><%= @the_dob %></p>
           <img src="<%= director.image_url %>"></img>
-        </div>
+
         
         <div class="caption">
           <a href = "/directors/<%= director.id %>" class="btn btn-default btn-block">
