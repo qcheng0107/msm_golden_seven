@@ -9,7 +9,7 @@
   </a>
 
     <div class="thumbnail">
-      <% @all_directors.each do|director| %>
+<% @all_directors.each do|director| %>
         <a href="/directors/<%= director.id %>">
             <%= director.name %>
             </a>
@@ -33,6 +33,6 @@
           </a>
         </div>
     </div>  
+<% end %>
 </div>
 
-<% end %>

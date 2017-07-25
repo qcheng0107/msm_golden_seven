@@ -9,16 +9,15 @@
   </a>
 
     <div class="thumbnail">
-      <% @all_movies.each do|movie| %>
+<% @all_movies.each do|movie| %>
         <a href="/movies/<%= movie.id %>">
             <%= movie.title %>
             </a>
-        </div>
         <p>Year: <%= movie.year %></p>
         <p>Duration: <%= movie.duration %></p>
         <p>Description: <%= movie.description %></p>
         <img src="<%= movie.image_url %>"></img>
-        
+    </div>
         <div class="caption">
           <a href = "/movies/<%= movie.id %>" class="btn btn-default btn-block">
             Show Details
@@ -32,7 +31,6 @@
             Delete
           </a>
         </div>
-    </div>  
+<% end %>
 </div>
 
-<% end %>
