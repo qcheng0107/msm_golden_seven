@@ -46,13 +46,14 @@ class DirectorController < ApplicationController
         
         the_id = params["an_id"]
         dir = Director.find(the_id)
-      @the_name = dir.name
-      @the_bio = dir.bio
-      @the_dob = dir.dob
-      @the_url = dir.image_url
-      @an_id = params["an_id"]
+        @the_name = dir.name
+        @the_bio = dir.bio
+        @the_dob = dir.dob
+        @the_url = dir.image_url
+        @an_id = params["an_id"]
+        dir.save
         
-       render("dir_templates/edit_form.html.erb")
+        render("dir_templates/edit_form.html.erb")
     end
     
     def update_row

@@ -48,12 +48,13 @@ class MovieController < ApplicationController
         
         the_id = params["an_id"]
         movie = Movie.find(the_id)
-      @the_title = movie.title
-       @the_year = movie.year
-       @the_duration = movie.duration
-       @the_description = movie.description
-       @url = movie.image_url
-      @an_id = params["an_id"]
+        @the_title = movie.title
+        @the_year = movie.year
+        @the_duration = movie.duration
+        @the_description = movie.description
+        @url = movie.image_url
+        @an_id = params["an_id"]
+        movie.save
         
        render("movie_templates/edit_form.html.erb")
     end

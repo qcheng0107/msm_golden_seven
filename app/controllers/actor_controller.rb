@@ -51,6 +51,7 @@ class ActorController < ApplicationController
       @the_dob = actor.dob
       @the_url = actor.image_url
       @an_id = params["an_id"]
+      actor.save
         
        render("actor_templates/edit_form.html.erb")
     end
