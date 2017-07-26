@@ -17,8 +17,7 @@ class MovieController < ApplicationController
        
        @movie_count = Movie.count
        
-    #   redirect_to("/directors/<% @the_id %>")
-      render("movie_templates/create_row.html.erb") 
+        redirect_to "/movies/#{m.id}"
    end
 
 
@@ -54,7 +53,7 @@ class MovieController < ApplicationController
         @the_description = movie.description
         @url = movie.image_url
         @an_id = params["an_id"]
-        movie.save
+        
         
        render("movie_templates/edit_form.html.erb")
     end
@@ -63,13 +62,21 @@ class MovieController < ApplicationController
         
         an_id = params["some_id"]
        movie = Movie.find(an_id)
+       movie.title = params[:title]
+        movie.year = params[:year]
+        movie.duration = params[:duration]
+        movie.description = params[:description]
+        movie.image_url = params[:image_url]
+        movie.director_id = params[:director_id]
+        movie.save
       @the_title = movie.title
        @the_year = movie.year
        @the_duration = movie.duration
        @the_description = movie.description
        @url = movie.image_url
        @an_id = params["some_id"]
-      render("movie_templates/update_row.html.erb")
+       
+      redirect_to "/movies/#{movie.id}"
     end
     
     def destroy_row

@@ -16,8 +16,8 @@ class ActorController < ApplicationController
        
        @actor_count = Actor.count
        
-    #   redirect_to("/directors/<% @the_id %>")
-      render("actor_templates/create_row.html.erb") 
+      redirect_to "/actors/#{a.id}"
+      
    end
 
 
@@ -51,7 +51,7 @@ class ActorController < ApplicationController
       @the_dob = actor.dob
       @the_url = actor.image_url
       @an_id = params["an_id"]
-      actor.save
+      
         
        render("actor_templates/edit_form.html.erb")
     end
@@ -59,14 +59,20 @@ class ActorController < ApplicationController
     def update_row
         
         an_id = params["some_id"]
-       actor = Actor.find(an_id)
+        actor = Actor.find(an_id)
+        actor.dob = params[:dob]
+        actor.name = params[:name]
+        actor.bio = params[:bio]
+        actor.image_url = params[:image_url]
+        actor.save
        @the_name = actor.name
        @the_bio = actor.bio
        @the_dob = actor.dob
        @the_url = actor.image_url
        @the_time = actor.created_at
-       @an_id = params["some_id"]
-      render("actor_templates/update_row.html.erb")
+       @an_id = actor.id
+       
+      redirect_to "/actors/#{actor.id}"
     end
     
     def destroy_row

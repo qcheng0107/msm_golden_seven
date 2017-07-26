@@ -16,8 +16,8 @@ class DirectorController < ApplicationController
        
        @director_count = Director.count
        
-    #   redirect_to("/directors/<%=@the_id %>")
-      render("dir_templates/create_row.html.erb") 
+    redirect_to "/directors/#{d.id}"
+      
    end
 
 
@@ -51,7 +51,7 @@ class DirectorController < ApplicationController
         @the_dob = dir.dob
         @the_url = dir.image_url
         @an_id = params["an_id"]
-        dir.save
+       
         
         render("dir_templates/edit_form.html.erb")
     end
@@ -59,14 +59,20 @@ class DirectorController < ApplicationController
     def update_row
         
         an_id = params["some_id"]
-       dir = Director.find(an_id)
+        dir = Director.find(an_id)
+        dir.dob = params[:dob]
+        dir.name = params[:name]
+        dir.bio = params[:bio]
+        dir.image_url = params[:image_url]
+        dir.save
        @the_name = dir.name
        @the_bio = dir.bio
        @the_dob = dir.dob
        @the_url = dir.image_url
        @the_time = dir.created_at
        @an_id = params["some_id"]
-      render("dir_templates/update_row.html.erb")
+      
+      redirect_to "/directors/#{d.id}"
     end
     
     def destroy_row
